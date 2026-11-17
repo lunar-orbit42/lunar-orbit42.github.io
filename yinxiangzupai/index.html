@@ -1,0 +1,854 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>印象足拍-每日吃瓜热榜与深度解析</title>
+<meta name="description" content="印象足拍每日吃瓜汇总热榜、时间线与深度解析，覆盖网红足拍、瓜田产业链、社区爆料与直播间切片，提供可核对的日期、账号与说法差异。">
+<meta name="keywords" content="印象足拍,每日吃瓜">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c2b23'/%3E%3Cpath d='M18 40c0-10 8-18 18-18 4 0 8 1 10 3-2 10-10 18-20 18-4 0-8-1-8-3z' fill='%236fbf8b'/%3E%3Ccircle cx='24' cy='22' r='3' fill='%23f2c14e'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#1c2b23;
+  --ink-2:#3b4d43;
+  --muted:#6b7c72;
+  --bg:#f6f4ee;
+  --card:#ffffff;
+  --line:#ddd8c8;
+  --brand:#2f6b4f;
+  --brand-d:#1f4a36;
+  --accent:#d4573a;
+  --gold:#c99a2e;
+  --soft:#eef1ea;
+  --radius:12px;
+  --radius-s:8px;
+  --shadow:0 2px 10px rgba(28,43,35,.07);
+  --shadow-h:0 6px 18px rgba(28,43,35,.12);
+  --max:1180px;
+  --h-ann:34px;
+  --h-head:66px;
+  --sticky:calc(var(--h-ann) + var(--h-head));
+  --fs-1:clamp(1.7rem,3.4vw,2.5rem);
+  --fs-2:1.28rem;
+  --fs-3:1.05rem;
+  --sp:18px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Noto Serif SC","Songti SC","SimSun",system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+  line-height:1.78;font-size:16px;
+}
+img{max-width:100%;display:block}
+a{color:var(--brand-d);text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3,h4{line-height:1.35;margin:0 0 .5em}
+h1{font-size:var(--fs-1)}
+h2{font-size:var(--fs-2)}
+h3{font-size:var(--fs-3)}
+p{margin:0 0 .9em}
+ul,ol{margin:0 0 .9em;padding-left:1.25em}
+li{margin-bottom:.35em}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:4px}
+.skip{position:absolute;left:-9999px;top:0;background:#fff;padding:10px 14px;z-index:200}
+.skip:focus{left:8px;top:8px}
+
+/* 吸顶公告 + 页头 */
+.topwrap{position:sticky;top:0;z-index:100}
+.ann{
+  background:var(--ink);color:#e8e3d3;font-size:.82rem;
+  min-height:var(--h-ann);display:flex;align-items:center;
+}
+.ann .wrap{display:flex;gap:14px;align-items:center;flex-wrap:wrap;padding:4px 0}
+.ann .tag{background:var(--accent);color:#fff;border-radius:4px;padding:1px 7px;font-size:.74rem;letter-spacing:.05em}
+.ann a{color:#f2c14e}
+header.site{
+  background:rgba(246,244,238,.96);backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);min-height:var(--h-head);
+  display:flex;align-items:center;
+}
+.wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 20px}
+.head-in{display:flex;align-items:center;gap:16px;padding:8px 0}
+.brand{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.brand svg{width:38px;height:38px}
+.brand b{font-size:1.12rem;letter-spacing:.02em;color:var(--ink)}
+nav.main{margin-left:auto}
+nav.main ul{display:flex;gap:4px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+nav.main a{display:block;padding:6px 10px;border-radius:var(--radius-s);font-size:.92rem;color:var(--ink-2)}
+nav.main a:hover{background:var(--soft);text-decoration:none}
+nav.main a.on{background:var(--brand);color:#fff}
+.search{display:flex;align-items:center;gap:6px;margin-left:10px}
+.search input{
+  border:1px solid var(--line);background:#fff;border-radius:var(--radius-s);
+  padding:7px 10px;font-size:.9rem;width:150px;font-family:inherit;color:var(--ink)
+}
+.search button{
+  border:1px solid var(--brand);background:var(--brand);color:#fff;
+  border-radius:var(--radius-s);padding:7px 12px;font-size:.86rem;cursor:pointer;font-family:inherit
+}
+.search button:hover{background:var(--brand-d)}
+.menu-btn{display:none;border:1px solid var(--line);background:#fff;border-radius:var(--radius-s);padding:7px 10px;font-size:.9rem;cursor:pointer;font-family:inherit;color:var(--ink)}
+#searchMsg{max-width:var(--max);margin:6px auto 0;padding:0 20px;font-size:.86rem;color:var(--accent);display:none}
+
+/* 首屏 */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fdfbf5,#f1eee3)}
+.hero-in{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center;padding:48px 0 46px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;letter-spacing:.14em;color:var(--brand);background:#e4ecdf;border:1px solid #cddcc5;border-radius:100px;padding:3px 12px;margin-bottom:14px}
+.hero h1{letter-spacing:.02em}
+.hero p.lede{font-size:1.02rem;color:var(--ink-2);max-width:36em}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+.btn{display:inline-block;padding:11px 20px;border-radius:var(--radius-s);font-size:.95rem;border:1px solid transparent;cursor:pointer;font-family:inherit}
+.btn-p{background:var(--brand);color:#fff}
+.btn-p:hover{background:var(--brand-d);text-decoration:none}
+.btn-s{background:#fff;color:var(--brand-d);border-color:var(--line)}
+.btn-s:hover{background:var(--soft);text-decoration:none}
+.stats{display:flex;gap:26px;margin-top:26px;flex-wrap:wrap}
+.stats div b{display:block;font-family:Georgia,serif;font-size:1.5rem;color:var(--brand-d);line-height:1.2}
+.stats div span{font-size:.8rem;color:var(--muted)}
+.hero-art{position:relative;height:300px}
+.hero-art svg{width:100%;height:100%}
+.float-note{
+  position:absolute;background:#fff;border:1px solid var(--line);border-radius:10px;
+  padding:8px 12px;font-size:.78rem;box-shadow:var(--shadow);color:var(--ink-2);
+}
+.float-note em{font-style:normal;color:var(--accent);font-weight:700}
+
+/* 布局 */
+main{display:block}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:34px;padding:36px 0 20px;align-items:start}
+section.block{margin-bottom:44px;scroll-margin-top:calc(var(--sticky) + 12px)}
+.sec-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;border-bottom:2px solid var(--ink);padding-bottom:8px;margin-bottom:20px}
+.sec-head h2{margin:0}
+.sec-head .sub{font-size:.84rem;color:var(--muted)}
+.sec-head .more{margin-left:auto;font-size:.86rem}
+
+/* 概览 */
+.overview{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.ov-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
+.ov-card b{display:block;font-family:Georgia,serif;font-size:1.45rem;color:var(--brand-d)}
+.ov-card span{font-size:.84rem;color:var(--muted)}
+.ov-card p{font-size:.88rem;margin:.5em 0 0;color:var(--ink-2)}
+
+/* 精选卡片 */
+.feature{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:transform .18s,box-shadow .18s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-h)}
+.card img{width:100%;height:158px;object-fit:cover}
+.card .body{padding:14px 16px 16px}
+.card .meta{font-size:.76rem;color:var(--muted);display:flex;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+.card h3{margin-bottom:.35em;font-size:1.02rem}
+.card p{font-size:.88rem;color:var(--ink-2);margin:0}
+.kw{display:inline-block;font-size:.72rem;background:var(--soft);border:1px solid var(--line);color:var(--brand-d);border-radius:4px;padding:1px 7px;margin:8px 6px 0 0}
+.card-wide{grid-column:1 / -1;display:grid;grid-template-columns:200px 1fr}
+.card-wide img{height:100%;min-height:170px}
+@media(max-width:640px){.card-wide{grid-template-columns:1fr}.card-wide img{height:160px}}
+
+/* 时间线 */
+.timeline{list-style:none;padding:0;margin:0;border-left:2px solid var(--line);margin-left:8px}
+.timeline li{position:relative;padding:0 0 18px 22px}
+.timeline li::before{content:"";position:absolute;left:-7px;top:8px;width:12px;height:12px;border-radius:50%;background:var(--brand);border:2px solid var(--bg)}
+.timeline time{font-size:.78rem;color:var(--accent);font-weight:700;letter-spacing:.03em}
+.timeline b{display:block;font-size:.98rem}
+.timeline p{font-size:.87rem;color:var(--ink-2);margin:.15em 0 0}
+
+/* 分类索引 */
+.tagindex{display:flex;flex-wrap:wrap;gap:10px}
+.tagindex a{display:inline-flex;align-items:center;gap:6px;background:var(--card);border:1px solid var(--line);border-radius:100px;padding:7px 15px;font-size:.9rem;color:var(--ink)}
+.tagindex a:hover{background:var(--brand);color:#fff;border-color:var(--brand);text-decoration:none}
+.tagindex a small{color:var(--muted);font-size:.74rem}
+.tagindex a:hover small{color:#cfe4d6}
+
+/* 深度解析 */
+.analysis{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px 28px;box-shadow:var(--shadow)}
+.analysis h2{border-bottom:2px solid var(--brand);padding-bottom:8px}
+.analysis h3{color:var(--brand-d);margin-top:1.4em;border-left:4px solid var(--gold);padding-left:10px}
+.analysis blockquote{margin:16px 0;padding:12px 16px;background:var(--soft);border-left:4px solid var(--brand);font-size:.94rem;color:var(--ink-2)}
+.pullquote{font-size:1.06rem;color:var(--ink);border:1px dashed var(--brand);border-radius:10px;padding:16px 18px;background:#fbfdf9;margin:18px 0}
+.checklist{background:#fbf7ee;border:1px solid #e6d9b8;border-radius:10px;padding:14px 18px;font-size:.9rem}
+.checklist h4{margin:0 0 .4em;font-size:.94rem;color:#8a6513}
+
+/* 体验指南编号步骤 */
+.steps{counter-reset:st;list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.steps li{counter-increment:st;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px 14px 58px;position:relative;font-size:.9rem}
+.steps li::before{content:counter(st);position:absolute;left:14px;top:14px;width:30px;height:30px;border-radius:50%;background:var(--brand);color:#fff;display:grid;place-items:center;font-family:Georgia,serif;font-size:.95rem}
+.steps b{display:block;color:var(--ink)}
+
+/* FAQ */
+details{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);margin-bottom:10px;padding:0 16px}
+details summary{cursor:pointer;padding:13px 0;font-weight:700;font-size:.95rem;list-style:none;display:flex;gap:10px;align-items:flex-start}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"+";color:var(--brand);font-family:Georgia,serif;font-weight:700;width:14px;flex-shrink:0}
+details[open] summary::before{content:"–"}
+details .ans{padding:0 0 14px 24px;font-size:.9rem;color:var(--ink-2)}
+
+/* 评论 */
+.comments{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.cmt{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;font-size:.89rem;display:flex;flex-direction:column;gap:6px}
+.cmt .who{display:flex;align-items:center;gap:8px;font-size:.8rem;color:var(--muted)}
+.avatar{width:28px;height:28px;border-radius:50%;background:var(--soft);display:grid;place-items:center;color:var(--brand-d);font-weight:700;font-size:.8rem;flex-shrink:0}
+.cmt .txt{color:var(--ink-2)}
+.cmt .ref{font-size:.76rem;color:var(--accent)}
+
+/* 相关资讯紧凑列表 */
+.news{list-style:none;padding:0;margin:0;border-top:1px solid var(--line)}
+.news li{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--line);font-size:.9rem;align-items:baseline;flex-wrap:wrap}
+.news time{font-size:.76rem;color:var(--muted);flex-shrink:0;font-variant-numeric:tabular-nums}
+.news a{color:var(--ink)}
+.news span{font-size:.78rem;color:var(--muted)}
+
+/* 相关推荐标签 */
+.recs{display:flex;flex-wrap:wrap;gap:10px}
+.recs a{background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:var(--radius-s);padding:8px 14px;font-size:.88rem}
+.recs a:hover{border-left-color:var(--accent);text-decoration:none;background:#fdf9ef}
+
+/* 榜单 */
+.rank{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.rank ol{list-style:none;margin:0;padding:0}
+.rank li{display:grid;grid-template-columns:34px 1fr auto;gap:12px;align-items:center;padding:11px 16px;border-bottom:1px solid var(--line);font-size:.9rem}
+.rank li:last-child{border-bottom:0}
+.rank li .no{font-family:Georgia,serif;font-size:1.1rem;color:var(--brand);font-weight:700}
+.rank li:nth-child(1) .no{color:var(--accent)}
+.rank li .sc{font-size:.78rem;color:var(--muted);white-space:nowrap}
+.rank li .bar{height:6px;background:var(--soft);border-radius:3px;margin-top:5px;overflow:hidden}
+.rank li .bar i{display:block;height:100%;background:var(--brand);border-radius:3px}
+
+/* 侧栏 */
+aside.side{display:grid;gap:20px}
+.side-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow)}
+.side-card h3{font-size:.98rem;border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:10px}
+.side-card ul{list-style:none;padding:0;margin:0}
+.side-card li{padding:6px 0;font-size:.88rem;border-bottom:1px dashed #eee8d8}
+.side-card li:last-child{border-bottom:0}
+.side-card li a{color:var(--ink-2)}
+.side-card nav a{display:block;padding:7px 10px;border-radius:var(--radius-s);font-size:.9rem;color:var(--ink-2);border-left:3px solid transparent}
+.side-card nav a:hover{background:var(--soft);text-decoration:none}
+.side-card nav a.active{background:var(--soft);border-left-color:var(--brand);color:var(--brand-d);font-weight:700}
+.notice{font-size:.84rem;color:var(--muted);line-height:1.7}
+
+/* 页脚 */
+footer.site{background:var(--ink);color:#c9d3c9;margin-top:40px;padding:38px 0 22px;font-size:.88rem}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:26px}
+footer.site h4{color:#fff;font-size:.94rem;margin-bottom:.6em}
+footer.site a{color:#c9d3c9}
+footer.site a:hover{color:#f2c14e}
+footer.site ul{list-style:none;padding:0;margin:0;font-size:.85rem}
+footer.site li{margin-bottom:.35em}
+.foot-brand{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.foot-brand b{color:#fff;font-size:1.05rem}
+.foot-note{border-top:1px solid #3b4d43;margin-top:24px;padding-top:16px;font-size:.78rem;color:#9aa89c;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.sample{background:#26392e;border:1px dashed #4a6354;border-radius:8px;padding:8px 12px;font-size:.78rem;color:#a9b8ab;margin-top:10px}
+
+/* 回到顶部 */
+#toTop{
+  position:fixed;right:18px;bottom:22px;z-index:90;width:44px;height:44px;border-radius:50%;
+  border:1px solid var(--line);background:#fff;color:var(--brand-d);font-size:1.1rem;cursor:pointer;
+  box-shadow:var(--shadow-h);display:none;place-items:center;
+}
+#toTop.show{display:grid}
+.disclaimer{font-size:.8rem;color:var(--muted);background:var(--soft);border-left:3px solid var(--gold);padding:10px 14px;border-radius:0 var(--radius-s) var(--radius-s) 0;margin:14px 0 0}
+
+@media(max-width:960px){
+  :root{--h-head:auto}
+  .layout{grid-template-columns:1fr}
+  aside.side{order:2;grid-template-columns:repeat(2,1fr);display:grid}
+  .hero-in{grid-template-columns:1fr;padding:34px 0}
+  .hero-art{height:220px;order:-1}
+  .overview{grid-template-columns:1fr 1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  nav.main{display:none;width:100%;order:5;margin-left:0}
+  nav.main.open{display:block}
+  nav.main ul{flex-direction:column;padding:8px 0 4px;border-top:1px solid var(--line);margin-top:6px}
+  .menu-btn{display:block;margin-left:auto}
+  .head-in{flex-wrap:wrap}
+  .search{width:100%;order:6;display:none}
+  .search.open{display:flex}
+  .search input{flex:1;width:auto}
+  .feature{grid-template-columns:1fr}
+  .comments{grid-template-columns:1fr}
+  .analysis{padding:20px 18px}
+}
+@media(max-width:600px){
+  .overview{grid-template-columns:1fr}
+  aside.side{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr}
+  .stats{gap:18px}
+  .rank li{grid-template-columns:28px 1fr;gap:8px}
+  .rank li .sc{grid-column:2;font-size:.74rem}
+  .ann .wrap{gap:8px;font-size:.76rem}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .card{transition:none}
+  .card:hover{transform:none}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+
+<div class="topwrap">
+  <div class="ann">
+    <div class="wrap">
+      <span class="tag">更新</span>
+      <span>11月7日 22:10 补齐「城南瓜田」三账号连线记录，新增 2 条时间线节点</span>
+      <a href="#latest">看最新动态</a>
+    </div>
+  </div>
+  <header class="site">
+    <div class="wrap head-in">
+      <div class="brand">
+        <svg viewBox="0 0 64 64" role="img" aria-label="印象足拍图形标志">
+          <rect width="64" height="64" rx="14" fill="#1c2b23"/>
+          <path d="M16 42c0-12 9-22 21-22 5 0 9 1.5 11 3.5C46 36 37 45 25 45c-5 0-9-1.2-9-3z" fill="#6fbf8b"/>
+          <path d="M22 45c4-7 10-12 18-15" stroke="#2f6b4f" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <circle cx="26" cy="20" r="3.4" fill="#f2c14e"/>
+          <circle cx="42" cy="16" r="2.2" fill="#d4573a"/>
+        </svg>
+        <b>印象足拍</b>
+      </div>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mainNav">菜单</button>
+      <nav class="main" id="mainNav" aria-label="主题导航">
+        <ul>
+          <li><a href="#overview" class="on">领域概览</a></li>
+          <li><a href="#picks">精选瓜单</a></li>
+          <li><a href="#latest">最新更新</a></li>
+          <li><a href="#channels">分类频道</a></li>
+          <li><a href="#analysis">深度解析</a></li>
+          <li><a href="#guide">体验指南</a></li>
+          <li><a href="#faq">常见问题</a></li>
+          <li><a href="#ranking">吃瓜榜</a></li>
+        </ul>
+      </nav>
+      <div class="search" id="searchBox">
+        <input type="search" id="q" placeholder="搜条目 / 账号 / 频道" aria-label="站内搜索">
+        <button type="button" id="searchBtn">查找</button>
+      </div>
+    </div>
+  </header>
+  <div id="searchMsg" role="status" aria-live="polite"></div>
+</div>
+
+<div class="hero">
+  <div class="wrap hero-in">
+    <div>
+      <span class="eyebrow">每日吃瓜 · 有据可查</span>
+      <h1>印象足拍</h1>
+      <p class="lede">把每天散落在直播间、短视频评论区、粉丝群里的瓜，按时间、账号、原始措辞归档。谁先说的、谁转的、哪句被剪掉了，逐条摆出来，再决定信不信。</p>
+      <div class="hero-cta">
+        <a class="btn btn-p" href="#picks">看今天精选瓜单</a>
+        <a class="btn btn-s" href="#analysis">读深度解析</a>
+      </div>
+      <div class="stats">
+        <div><b>128</b><span>已归档瓜条</span></div>
+        <div><b>37</b><span>涉及账号</span></div>
+        <div><b>11-07</b><span>最近一期时间线</span></div>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 420 300" role="img">
+        <defs>
+          <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#e4ecdf"/><stop offset="1" stop-color="#cddcc5"/>
+          </linearGradient>
+        </defs>
+        <rect x="10" y="24" width="400" height="252" rx="18" fill="url(#g1)"/>
+        <rect x="42" y="60" width="200" height="12" rx="6" fill="#2f6b4f" opacity=".75"/>
+        <rect x="42" y="86" width="150" height="9" rx="4.5" fill="#6fbf8b"/>
+        <rect x="42" y="106" width="176" height="9" rx="4.5" fill="#6fbf8b" opacity=".7"/>
+        <circle cx="330" cy="104" r="52" fill="#f2c14e" opacity=".9"/>
+        <path d="M300 130c8-22 28-38 52-40" stroke="#1c2b23" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <rect x="42" y="150" width="336" height="1.5" fill="#2f6b4f" opacity=".3"/>
+        <g fill="#1c2b23" opacity=".82">
+          <rect x="42" y="172" width="96" height="66" rx="9"/>
+          <rect x="152" y="172" width="96" height="66" rx="9"/>
+          <rect x="262" y="172" width="116" height="66" rx="9"/>
+        </g>
+        <g fill="#f2c14e"><circle cx="62" cy="192" r="5"/><circle cx="172" cy="192" r="5"/><circle cx="282" cy="192" r="5"/></g>
+        <g fill="#c9d3c9"><rect x="54" y="208" width="70" height="6" rx="3"/><rect x="164" y="208" width="70" height="6" rx="3"/><rect x="274" y="208" width="88" height="6" rx="3"/></g>
+        <g fill="#9aa89c"><rect x="54" y="220" width="52" height="5" rx="2.5"/><rect x="164" y="220" width="60" height="5" rx="2.5"/><rect x="274" y="220" width="44" height="5" rx="2.5"/></g>
+      </svg>
+      <div class="float-note" style="top:14px;left:6px">今日新增 <em>6</em> 条</div>
+      <div class="float-note" style="bottom:22px;right:10px">待核实 <em>3</em> 条</div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <main id="main" class="layout">
+    <div class="col-main">
+
+      <!-- 1 领域概览 -->
+      <section class="block" id="overview">
+        <div class="sec-head">
+          <h2>领域概览</h2>
+          <span class="sub">这个圈子每天在发生什么</span>
+        </div>
+        <p>足拍圈的吃瓜，绝大多数围绕三类现场展开：直播间内连麦翻车、短视频切片二次剪辑、粉丝群里的语音转文字。10月20日至11月7日，可查到的公开事件集中在「城南瓜田」「老槐树下」「夜跑三人组」三个账号群，合计37个相关账号，其中16个在本周内发过澄清或补充说明。</p>
+        <div class="overview">
+          <div class="ov-card"><b>42%</b><span>切片类瓜条占比</span><p>10月12—11月6日归档中，因剪辑顺序被指「断章取义」的有14条。</p></div>
+          <div class="ov-card"><b>6 天</b><span>平均发酵周期</span><p>从首次直播发言到出现明确回应，最快的是10月29日那条，18小时。</p></div>
+          <div class="ov-card"><b>3 类</b><span>常见证据形态</span><p>直播回放、群聊截图、连线录音，前两类占可核对证据的八成。</p></div>
+        </div>
+        <p class="disclaimer">下列条目含示例生成的账号与事件名称，用于说明信息组织方式；如与真实人物同名，属巧合。判断方法比结论更重要。</p>
+      </section>
+
+      <!-- 2 精选内容推荐 -->
+      <section class="block" id="picks">
+        <div class="sec-head">
+          <h2>精选瓜单</h2>
+          <span class="sub">值得花时间看完整版的四条</span>
+          <a class="more" href="#latest">全部更新 →</a>
+        </div>
+        <div class="feature">
+          <article class="card card-wide">
+            <img src="https://picsum.photos/seed/impression-footpick-01/400/240" width="400" height="240" loading="lazy" alt="直播间连线界面截图示意，三个窗口并排">
+            <div class="body">
+              <div class="meta"><span>11月6日 21:40</span><span>城南瓜田</span><span>连线纠纷</span></div>
+              <h3>三人连线中「你先骂的」原话被剪成两段，回放时间戳对不上</h3>
+              <p>11月6日晚的三人连线，21:47:12 到 21:49:30 这段在流传切片里被切去了中间 41 秒。完整回放显示，A 的「你先骂的」出现在 B 提到旧账之后。争议点不在谁对，而在切片发布者是否知道中间断档。</p>
+              <span class="kw">连线回放核对</span><span class="kw">切片断章</span><span class="kw">时间戳比对</span>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://picsum.photos/seed/impression-footpick-02/400/240" width="400" height="240" loading="lazy" alt="手机群聊界面示意，长串文字消息">
+            <div class="body">
+              <div class="meta"><span>11月4日</span><span>老槐树下</span></div>
+              <h3>群聊截图里 3 处字体间距异常，转发链已断到第 4 手</h3>
+              <p>截图经 4 次转发后像素压缩严重。字体间距、头像描边、输入框高度三处与官方客户端不一致，无法排除拼接。</p>
+              <span class="kw">群聊截图鉴定</span>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://picsum.photos/seed/impression-footpick-03/400/240" width="400" height="240" loading="lazy" alt="夜间跑道与路灯剪影">
+            <div class="body">
+              <div class="meta"><span>11月2日</span><span>夜跑三人组</span></div>
+              <h3>「夜跑约拍」被解读成别的意思，当事人 11 月 1 日已改签名</h3>
+              <p>原始邀约文案写的是「周三晚 8 点江边，拍路灯下跑姿」。11月1日账号签名改成「仅接运动摄影」。解读与原文的落差值得看清。</p>
+              <span class="kw">原文措辞还原</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 3 最新更新 时间线 -->
+      <section class="block" id="latest">
+        <div class="sec-head">
+          <h2>最新更新</h2>
+          <span class="sub">按时间倒序，附可核对节点</span>
+        </div>
+        <ul class="timeline">
+          <li>
+            <time datetime="2026-11-07">11月7日 22:10</time>
+            <b>城南瓜田补齐三账号连线记录</b>
+            <p>补入 21:47:12 前后的完整回放链接描述与两段被剪位置的秒数，新增节点标为「补证」。</p>
+          </li>
+          <li>
+            <time datetime="2026-11-06">11月6日 21:52</time>
+            <b>三人连线现场出现情绪性发言</b>
+            <p>21:47 至 21:52 之间，B 提到 10 月 19 日旧账，A 回应「你先骂的」，当场未再展开。</p>
+          </li>
+          <li>
+            <time datetime="2026-11-05">11月5日 14:20</time>
+            <b>老槐树下发布一条 43 字说明</b>
+            <p>落款时间为 11月5日 14:20，未配图，原文用「素材来源存疑」表述，未点名转发者。</p>
+          </li>
+          <li>
+            <time datetime="2026-11-03">11月3日 09:05</time>
+            <b>夜跑三人组调整主页签名</b>
+            <p>从「约拍私信」改为「仅接运动摄影」，改动时间可查，未见解释性长文。</p>
+          </li>
+          <li>
+            <time datetime="2026-10-31">10月31日 20:00</time>
+            <b>本月最后一场公开连线结束</b>
+            <p>参与账号 5 个，累计时长 2 小时 14 分，回放保留 30 天。</p>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 4 分类入口 -->
+      <section class="block" id="channels">
+        <div class="sec-head">
+          <h2>分类频道</h2>
+          <span class="sub">按查找习惯切的十类入口</span>
+        </div>
+        <div class="tagindex">
+          <a href="/#picks">直播间翻车<small>18 条</small></a>
+          <a href="/#picks">连线对骂<small>11 条</small></a>
+          <a href="/#picks">切片断章<small>14 条</small></a>
+          <a href="/#latest">群聊截图<small>9 条</small></a>
+          <a href="/#analysis">账号澄清<small>16 条</small></a>
+          <a href="/#guide">约拍误会<small>7 条</small></a>
+          <a href="/#ranking">热搜复读<small>12 条</small></a>
+          <a href="/#faq">旧账重提<small>6 条</small></a>
+          <a href="/#recs">粉丝群语音<small>5 条</small></a>
+          <a href="/#comments">路人围观<small>22 条</small></a>
+        </div>
+      </section>
+
+      <!-- 5 深度解析 主体阅读区 -->
+      <section class="block" id="analysis">
+        <div class="analysis">
+          <h2>深度解析：切片断章为什么总能赢在传播上</h2>
+          <p>结论先摆出来：<strong>在足拍类内容里，「剪辑顺序」比「说了什么」更能决定一条瓜的走势。</strong>这个判断可以被反驳——只要找出一个靠完整回放反而传播更广的反例，它就站不住。10月12日至11月6日的26条公开纠纷里，24条的首发形态是 15 至 60 秒的竖屏切片，完整回放作为第二条出现的有 19 条，而完整回放进入热榜前三的只有 5 条。</p>
+
+          <h3>一、时间戳差 41 秒，信息结构就变了</h3>
+          <p>11月6日三人连线，流传最广的版本 22 秒，从 A 的「你先骂的」直接跳到 B 的沉默。完整回放里，中间有 41 秒的说明，内容是 B 先提 10 月 19 日那场旧连线。切片发布账号「瓜田放大镜」在 11月6日 22:05 的配文只写「当场哑火」，没提断档。</p>
+          <p>可核对的材料在这几处：直播回放时长 2 小时 14 分；被剪区段位于 21:48:03—21:48:44；切片时长 22 秒；发布与回放的先后相差 13 分钟。四个数字连起来看，断档是剪辑选择还是压缩失误，需要发布者说明。</p>
+
+          <h3>二、三种说法在 11月5日同时存在</h3>
+          <p>关于老槐树下那张群聊截图，当天流通的说法分三层：</p>
+          <ul>
+            <li><b>事实层：</b>截图共 4 次转发，最早出现在 10月28日 23:11 的一个 200 人群。</li>
+            <li><b>回应层：</b>账号方 11月5日 14:20 发布 43 字说明，称「素材来源存疑」，未点名。</li>
+            <li><b>转述层：</b>两个资讯号把它概括成「当事人否认」，但原文没有「否认」二字。</li>
+          </ul>
+          <p>转述与原文的差别，是这条瓜最值得看的地方。一条 43 字的说明，被压成 4 个字的标题，中间丢的是限定条件。</p>
+
+          <div class="pullquote">判断一条切片是否断章，最省事的核对方式不是看评论，而是把首发切片的时长、完整回放的时长、被剪区段秒数三个数写在一起。三个数对不上，就先别转发。</div>
+
+          <h3>三、规则前后变化：连麦资格从「谁都能上」到「提前报备」</h3>
+          <p>10月20日之前，城南瓜田的连麦是开放的，任何人进房可申请。10月21日起改成提前 24 小时报备，理由是「避免无关人员乱入」。规则改后到 11月7日，公开连线从每周 5 场降到 2 场，单场平均时长从 1 小时 40 分升到 2 小时 14 分。场次少了，单场信息密度高了，但可围观的时间窗口也更集中——这解释了为什么切片总在连线结束后的 15 分钟内集中出现。</p>
+
+          <h3>四、把「谁说的」拆成可核对结构</h3>
+          <div class="checklist">
+            <h4>四行核对表（以 11月6日连线为例）</h4>
+            <ol>
+              <li>原始发言：A 说「你先骂的」，时间 21:47:12，回放可见。</li>
+              <li>被引形态：22 秒切片，含该句，无前置 41 秒说明。</li>
+              <li>二次转述：「瓜田放大镜」配文「当场哑火」，11月6日 22:05。</li>
+              <li>当事人回应：11月7日 22:10 补证节点，未直接否定切片，仅补时间线。</li>
+            </ol>
+          </div>
+          <p>四行里真正能当证据的是第一行和第四行，第二、三行是传播形态。把传播形态当证据，是这类瓜反复翻车的根源。补充一句：如果 11月7日补证节点里提到的 21:47:12 与回放对不上，那补证本身也要重看。</p>
+        </div>
+      </section>
+
+      <!-- 6 体验指南 编号步骤 -->
+      <section class="block" id="guide">
+        <div class="sec-head">
+          <h2>体验指南</h2>
+          <span class="sub">五步把一条瓜看到底</span>
+        </div>
+        <ol class="steps">
+          <li><b>先找首发形态。</b>看最早那条是竖屏切片、完整回放还是纯文字截图。首发是切片，就先假定有断档。</li>
+          <li><b>抄三个数：</b>切片时长、回放时长、被剪区段秒数。抄在同一行里，别分开记。</li>
+          <li><b>搜原始措辞。</b>把关键句加引号在站内搜，看有没有第二个人在同一时间点引用过。</li>
+          <li><b>看回应有没有限定词。</b>「来源存疑」不等于「否认」，两句话的处理方式完全不同。</li>
+          <li><b>留一条反证入口。</b>把完整回放的时间戳记下来，方便别人反驳你，也方便你反驳自己。</li>
+        </ol>
+      </section>
+
+      <!-- 7 FAQ -->
+      <section class="block" id="faq">
+        <div class="sec-head">
+          <h2>常见问题</h2>
+          <span class="sub">围绕具体条目作答</span>
+        </div>
+        <details>
+          <summary>11月6日三人连线里，「你先骂的」到底谁先说的？</summary>
+          <div class="ans">回放显示 B 在 21:47:48 先提 10 月 19 日旧账，A 在 21:47:52 回「你先骂的」。中间 41 秒被多数切片剪掉，导致读起来像 A 先挑事。这句话本身不能定责，只能说明断档位置关键。</div>
+        </details>
+        <details>
+          <summary>老槐树下那张群聊截图能确认是真的吗？</summary>
+          <div class="ans">不能确认，也不能排除。截图经历 4 次转发、3 处字体间距异常，缺少原始设备导出文件。账号方 11月5日说明用的是「素材来源存疑」，未给出截图真伪结论。</div>
+        </details>
+        <details>
+          <summary>夜跑约拍被解读成别的意思，原文是怎么写的？</summary>
+          <div class="ans">原文写「周三晚 8 点江边，拍路灯下跑姿，穿反光条外套」。11月1日签名改为「仅接运动摄影」。解读与原文措辞之间存在明显落差，属于典型的一词多义扩散。</div>
+        </details>
+        <details>
+          <summary>切片断章和恶意造谣是一回事吗？</summary>
+          <div class="ans">不是。断章指删去限定语境，可能出于时长压缩；造谣指虚构未发生的事实。11月6日那条更接近前者，因为被剪句在原回放里确实存在，只是缺了前置说明。</div>
+        </details>
+        <details>
+          <summary>为什么连麦规则 10月21日要改成提前报备？</summary>
+          <div class="ans">公开说明的理由是「避免无关人员乱入」。改后两周场次减半、单场时长增加，围观窗口更集中，也连带影响了切片的发布时间分布。</div>
+        </details>
+      </section>
+
+      <!-- 8 用户评论 -->
+      <section class="block" id="comments">
+        <div class="sec-head">
+          <h2>用户评论</h2>
+          <span class="sub">有吐槽，也有补充</span>
+        </div>
+        <div class="comments">
+          <div class="cmt">
+            <div class="who"><span class="avatar">麦</span>麦田不打烊 · 11月7日 22:30</div>
+            <div class="txt">补证节点里 21:47:12 这个时间我照着回放对了一遍，确实能对上。但 21:48:03 那段起点我看到的显示是 21:48:05，差两秒，建议再核。</div>
+            <div class="ref">指向：11月6日连线补证节点</div>
+          </div>
+          <div class="cmt">
+            <div class="who"><span class="avatar">青</span>青柠汽水 · 11月7日 21:05</div>
+            <div class="txt">「瓜田放大镜」那条配文写「当场哑火」，我看完完整回放，B 沉默是因为麦断了，不是被说住了。这个差别挺大的。</div>
+            <div class="ref">指向：11月6日 22:05 切片配文</div>
+          </div>
+          <div class="cmt">
+            <div class="who"><span class="avatar">石</span>石榴不酸 · 11月6日 23:48</div>
+            <div class="txt">说实话这种连线瓜越来越没意思，来来回回都是旧账。我更想看 10月19日那场到底发生了什么，光提不展开。</div>
+          </div>
+          <div class="cmt">
+            <div class="who"><span class="avatar">沙</span>沙洲冷 · 11月6日 22:40</div>
+            <div class="txt">群聊截图那个字体间距，我用同一个客户端试了下，输入框高度确实不一样。截图至少有两处是拼的。</div>
+            <div class="ref">指向：老槐树下群聊截图</div>
+          </div>
+          <div class="cmt">
+            <div class="who"><span class="avatar">路</span>路灯下跑步 · 11月4日 19:12</div>
+            <div class="txt">夜跑那条真的是想多了。穿反光条外套这一句本来就有，原帖配图也是跑道。改成「仅接运动摄影」反而更像此地无银，不如不改。</div>
+            <div class="ref">指向：夜跑三人组签名改动</div>
+          </div>
+          <div class="cmt">
+            <div class="who"><span class="avatar">松</span>松子糖 · 11月3日 10:30</div>
+            <div class="txt">中立地说，改成提前报备以后场次少了，反而好追一点。以前一晚上五场，根本看不过来。</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9 相关资讯 紧凑列表 -->
+      <section class="block" id="news">
+        <div class="sec-head">
+          <h2>相关资讯</h2>
+          <span class="sub">同日发生的其他条目</span>
+        </div>
+        <ul class="news">
+          <li><time datetime="2026-11-07">11月7日</time><a href="/#latest">城南瓜田回放保留期确认为 30 天</a><span>直播说明</span></li>
+          <li><time datetime="2026-11-06">11月6日</time><a href="/#picks">四段连线切片在同一小时发布</a><span>发布时间集中</span></li>
+          <li><time datetime="2026-11-05">11月5日</time><a href="/#analysis">43 字说明被压成 4 字标题的传播链</a><span>转述差异</span></li>
+          <li><time datetime="2026-11-03">11月3日</time><a href="/#picks">夜跑账号签名改动被截图对比</a><span>前后对照</span></li>
+          <li><time datetime="2026-11-01">11月1日</time><a href="/#comments">十月底旧连线被重新提起的次数统计</a><span>6 次</span></li>
+          <li><time datetime="2026-10-29">10月29日</time><a href="/#latest">18 小时完成回应的最短记录</a><span>发酵周期</span></li>
+        </ul>
+      </section>
+
+      <!-- 10 相关推荐 标签 -->
+      <section class="block" id="recs">
+        <div class="sec-head">
+          <h2>相关推荐</h2>
+          <span class="sub">顺着这些词往下翻</span>
+        </div>
+        <div class="recs">
+          <a href="/#analysis">切片断章判断方法</a>
+          <a href="/#latest">连线回放时间戳核对</a>
+          <a href="/#picks">群聊截图字体间距</a>
+          <a href="/#guide">原始措辞引号搜索</a>
+          <a href="/#comments">旧账重提清单</a>
+          <a href="/#faq">账号澄清原文解读</a>
+          <a href="/#latest">连麦报备规则变化</a>
+          <a href="/#picks">约拍误会原文还原</a>
+        </div>
+      </section>
+
+      <!-- 11 吃瓜榜 -->
+      <section class="block" id="ranking">
+        <div class="sec-head">
+          <h2>吃瓜榜</h2>
+          <span class="sub">按可核对程度排序，非热度</span>
+        </div>
+        <div class="rank">
+          <ol>
+            <li><span class="no">1</span><div>11月6日连线补证节点<div class="bar"><i style="width:94%"></i></div></div><span class="sc">核对 4/4</span></li>
+            <li><span class="no">2</span><div>夜跑账号签名前后对照<div class="bar"><i style="width:86%"></i></div></div><span class="sc">核对 3/4</span></li>
+            <li><span class="no">3</span><div>10月21日连麦规则改动<div class="bar"><i style="width:78%"></i></div></div><span class="sc">核对 3/4</span></li>
+            <li><span class="no">4</span><div>老槐树下 43 字说明原文<div class="bar"><i style="width:70%"></i></div></div><span class="sc">核对 2/4</span></li>
+            <li><span class="no">5</span><div>群聊截图转发链<div class="bar"><i style="width:54%"></i></div></div><span class="sc">核对 2/4</span></li>
+            <li><span class="no">6</span><div>切片「当场哑火」配文<div class="bar"><i style="width:38%"></i></div></div><span class="sc">核对 1/4</span></li>
+          </ol>
+        </div>
+        <p style="font-size:.84rem;color:var(--muted);margin-top:10px">排序依据是四行核对表里能落地的行数，不是传播量。第 6 名传播最广，能核对的最少。</p>
+      </section>
+
+    </div>
+
+    <!-- 侧栏 -->
+    <aside class="side" aria-label="侧栏">
+      <div class="side-card">
+        <h3>频道导航</h3>
+        <nav aria-label="侧栏导航">
+          <a href="/#overview">领域概览</a>
+          <a href="/#picks">精选瓜单</a>
+          <a href="/#latest">最新更新</a>
+          <a href="/#channels">分类频道</a>
+          <a href="/#analysis">深度解析</a>
+          <a href="/#guide">体验指南</a>
+          <a href="/#faq">常见问题</a>
+          <a href="/#comments">用户评论</a>
+          <a href="/#news">相关资讯</a>
+          <a href="/#recs">相关推荐</a>
+          <a href="/#ranking">吃瓜榜</a>
+        </nav>
+      </div>
+      <div class="side-card">
+        <h3>本周关键词</h3>
+        <ul>
+          <li><a href="/#analysis">切片断章</a></li>
+          <li><a href="/#latest">连线回放</a></li>
+          <li><a href="/#picks">群聊截图</a></li>
+          <li><a href="/#guide">原始措辞</a></li>
+          <li><a href="/#faq">连麦报备</a></li>
+          <li><a href="/#comments">旧账重提</a></li>
+        </ul>
+      </div>
+      <div class="side-card">
+        <h3>核对提示</h3>
+        <p class="notice">看到一条新瓜，先记三个数：切片时长、回放时长、被剪秒数。三个数写在同一行，比记住谁说了什么更有用。</p>
+      </div>
+    </aside>
+  </main>
+</div>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <svg viewBox="0 0 64 64" width="32" height="32" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#2f6b4f"/>
+            <path d="M16 42c0-12 9-22 21-22 5 0 9 1.5 11 3.5C46 36 37 45 25 45c-5 0-9-1.2-9-3z" fill="#c9d3c9"/>
+            <circle cx="26" cy="20" r="3.4" fill="#f2c14e"/>
+          </svg>
+          <b>印象足拍</b>
+        </div>
+        <p style="color:#c9d3c9;font-size:.85rem">每天归档足拍圈的连线、切片与澄清，按时间、账号、原始措辞留底，方便对照与质疑。</p>
+        <div class="sample">示例数据说明：页面内账号名、事件名与数字为演示信息组织方式而生成，若与真实主体重名，纯属巧合。</div>
+      </div>
+      <div>
+        <h4>吃瓜栏目</h4>
+        <ul>
+          <li><a href="/#picks">精选瓜单</a></li>
+          <li><a href="/#latest">最新更新</a></li>
+          <li><a href="/#ranking">吃瓜榜</a></li>
+          <li><a href="/#comments">用户评论</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>核对工具</h4>
+        <ul>
+          <li><a href="/#guide">五步查到</a></li>
+          <li><a href="/#analysis">四行核对表</a></li>
+          <li><a href="/#faq">常见问题</a></li>
+          <li><a href="/#recs">相关推荐</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>频道入口</h4>
+        <ul>
+          <li><a href="/#channels">直播间翻车</a></li>
+          <li><a href="/#channels">切片断章</a></li>
+          <li><a href="/#channels">群聊截图</a></li>
+          <li><a href="/#channels">账号澄清</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-note">
+      <span>页面内容更新时间：2026年11月7日 22:10，对应正文「最新更新」中补证节点。</span>
+      <span>© 2026 印象足拍 · 内容为独立整理与示例说明</span>
+    </div>
+  </div>
+</footer>
+
+<button id="toTop" type="button" aria-label="回到顶部">↑</button>
+
+<script>
+(function(){
+  var menuBtn=document.getElementById('menuBtn');
+  var nav=document.getElementById('mainNav');
+  var searchBtn=document.getElementById('searchBtn');
+  var searchBox=document.getElementById('searchBox');
+  var q=document.getElementById('q');
+  var msg=document.getElementById('searchMsg');
+  var toTop=document.getElementById('toTop');
+
+  function setSearchMsg(t){
+    if(!t){msg.style.display='none';msg.textContent='';return;}
+    msg.textContent=t;msg.style.display='block';
+  }
+
+  menuBtn.addEventListener('click',function(){
+    var open=nav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded',open?'true':'false');
+    if(open){searchBox.classList.add('open');}
+    else{searchBox.classList.remove('open');}
+  });
+
+  nav.addEventListener('click',function(e){
+    if(e.target.tagName==='A'&&window.matchMedia('(max-width:960px)').matches){
+      nav.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded','false');
+      searchBox.classList.remove('open');
+    }
+  });
+
+  function stripText(el){
+    return (el.textContent||'').replace(/\s+/g,'');
+  }
+  function doSearch(){
+    var term=(q.value||'').trim();
+    if(!term){setSearchMsg('请输入要查的词，例如「切片断章」或「城南瓜田」。');return;}
+    var hits=[];
+    var nodes=document.querySelectorAll('main h2, main h3, main summary, main .news a, main .recs a, main .tagindex a, main .timeline b, main .cmt .ref');
+    nodes.forEach(function(n){
+      if(stripText(n).indexOf(term)>-1){hits.push(n);}
+    });
+    if(!hits.length){
+      setSearchMsg('没有找到「'+term+'」相关条目。可以换个词试试：连线回放、群聊截图、连麦报备。');
+      return;
+    }
+    var first=hits[0];
+    setSearchMsg('找到 '+hits.length+' 处与「'+term+'」相关，已跳到第一条：'+stripText(first));
+    first.setAttribute('tabindex','-1');
+    first.focus({preventScroll:true});
+    first.scrollIntoView({behavior:'smooth',block:'center'});
+  }
+  searchBtn.addEventListener('click',doSearch);
+  q.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();doSearch();}});
+
+  var sections=[].slice.call(document.querySelectorAll('main section[id]'));
+  var sideLinks=[].slice.call(document.querySelectorAll('.side-card nav a'));
+  function onScroll(){
+    var y=window.scrollY+180;
+    var cur=null;
+    sections.forEach(function(s){ if(s.offsetTop<=y){cur=s;} });
+    sideLinks.forEach(function(a){
+      a.classList.toggle('active', cur && a.getAttribute('href')==='/#/'+'' || cur && a.getAttribute('href')==='#'+'' || cur && a.getAttribute('href')==='/'+'#'+cur.id);
+    });
+    // 顶部导航高亮
+    var navLinks=[].slice.call(document.querySelectorAll('nav.main a'));
+    navLinks.forEach(function(a){
+      a.classList.toggle('on', cur && a.getAttribute('href')==='/'+'#'+cur.id);
+    });
+    if(window.scrollY>420){toTop.classList.add('show');}else{toTop.classList.remove('show');}
+  }
+  toTop.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+
+  // 锚点平滑滚动，预留吸顶高度
+  document.querySelectorAll('a[href^="/#"]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      var id=a.getAttribute('href').split('#')[1];
+      var target=document.getElementById(id);
+      if(!target) return;
+      e.preventDefault();
+      var top=target.getBoundingClientRect().top+window.scrollY-96;
+      window.scrollTo({top:top,behavior:'smooth'});
+      if(history.replaceState){history.replaceState(null,'','#'+id);}
+    });
+  });
+})();
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"印象足拍","description":"每日吃瓜汇总，覆盖连线回放、切片断章、群聊截图与账号澄清的核对方法","inLanguage":"zh-CN"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"11月6日三人连线里，「你先骂的」到底谁先说的？","acceptedAnswer":{"@type":"Answer","text":"回放显示 B 在 21:47:48 先提 10 月 19 日旧账，A 在 21:47:52 回「你先骂的」。中间 41 秒被多数切片剪掉。"}},
+{"@type":"Question","name":"老槐树下那张群聊截图能确认是真的吗？","acceptedAnswer":{"@type":"Answer","text":"不能确认，也不能排除。截图经历 4 次转发、3 处字体间距异常，账号方 11月5日说明用的是「素材来源存疑」。"}},
+{"@type":"Question","name":"夜跑约拍被解读成别的意思，原文是怎么写的？","acceptedAnswer":{"@type":"Answer","text":"原文写「周三晚 8 点江边，拍路灯下跑姿，穿反光条外套」，11月1日签名改为「仅接运动摄影」。"}},
+{"@type":"Question","name":"切片断章和恶意造谣是一回事吗？","acceptedAnswer":{"@type":"Answer","text":"不是。断章指删去限定语境，造谣指虚构未发生的事实。被剪句在原回放里确实存在，只是缺了前置说明。"}},
+{"@type":"Question","name":"为什么连麦规则 10月21日要改成提前报备？","acceptedAnswer":{"@type":"Answer","text":"公开说明的理由是「避免无关人员乱入」。改后两周场次减半、单场时长增加，围观窗口更集中。"}}
+]}
+</script>
+</body>
+                                                                           </html>
